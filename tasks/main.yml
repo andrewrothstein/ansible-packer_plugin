@@ -1,0 +1,27 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: make plugins directory
+  file:
+    path: '{{ packer_plugin_install_dir }}'
+    mode: 0755
+    state: directory
+- name: download plugin
+  get_url:
+    url: '{{ packer_plugin_url }}'
+    dest: '{{ packer_plugin_install_exe }}'
+    mode: 0644
+    checksum: '{{ packer_plugin_checksum }}'
+- name: link plugin
+  file:
+    src: '{{ packer_plugin_install_exe }}'
+    dest: '{{ packer_plugin_link_exe }}'
+    state: link

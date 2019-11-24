@@ -1,0 +1,16 @@
+---
+# defaults file for packer_plugin
+
+packer_plugin_install_dir: '{{ ansible_env.HOME }}/.packer.d/plugins'
+packer_plugin_os: linux
+
+#packer_plugin_name: builder-vsphere-clone
+#packer_plugin_ver: v2.3
+#packer_plugin_checksums:
+#  v2.3:
+#    # https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.3/packer-builder-vsphere-clone.exe
+#    windows: sha256:bdd0681ec78d4af4d9b2940e82a089d3c1b8a93af48548f69646781bc8b10989
+#    # https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.3/packer-builder-vsphere-clone.linux
+#    linux: sha256:6aea5b003bbdfbe8f7948dd6c905e224f8fe6b94ed9ccbf46917b01e1a0d8e70
+#    # https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.3/packer-builder-vsphere-clone.macos
+#    macos: sha256:13f56c1bc099c4d372573c0f5aa9bf7cf85a79d37333e38d59a76e4918755e4c

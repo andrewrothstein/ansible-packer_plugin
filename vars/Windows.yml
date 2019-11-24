@@ -1,0 +1,3 @@
+---
+packer_plugin_os: windows
+packer_plugin_suffix: .exe
