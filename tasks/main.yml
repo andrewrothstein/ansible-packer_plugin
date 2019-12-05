@@ -12,7 +12,6 @@
 - name: make plugins directories
   with_items:
     - '{{ packer_plugin_install_dir }}'
-    - '{{ packer_plugin_ver_install_dir }}'
   file:
     path: '{{ item }}'
     mode: 0755
@@ -23,8 +22,3 @@
     dest: '{{ packer_plugin_install_exe }}'
     mode: 0644
     checksum: '{{ packer_plugin_checksum }}'
-- name: link plugin
-  file:
-    src: '{{ packer_plugin_install_exe }}'
-    dest: '{{ packer_plugin_link_exe }}'
-    state: link

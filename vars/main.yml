@@ -1,10 +1,7 @@
 ---
 # vars file for packer_plugin
-packer_plugin_ver_install_dir: '{{ packer_plugin_install_dir }}-ver'
 packer_plugin_eff_suffix: '{{ packer_plugin_suffix | default("." + packer_plugin_os) }}'
 packer_plugin_exe: packer-{{ packer_plugin_name }}{{ packer_plugin_eff_suffix }}
-packer_plugin_ver_exe: packer-{{ packer_plugin_name }}.{{ packer_plugin_ver }}{{ packer_plugin_eff_suffix }}
 packer_plugin_url: '{{ packer_plugin_mirror }}/{{ packer_plugin_ver }}/{{ packer_plugin_exe }}'
-packer_plugin_install_exe: '{{ packer_plugin_ver_install_dir }}/{{ packer_plugin_ver_exe }}'
-packer_plugin_link_exe: '{{ packer_plugin_install_dir }}/packer-{{ packer_plugin_name }}'
+packer_plugin_install_exe: '{{ packer_plugin_install_dir }}/packer-{{ packer_plugin_name }}'
 packer_plugin_checksum: '{{ packer_plugin_checksums[packer_plugin_ver][packer_plugin_os] }}'
