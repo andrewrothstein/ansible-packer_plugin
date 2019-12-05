@@ -20,5 +20,5 @@
   get_url:
     url: '{{ packer_plugin_url }}'
     dest: '{{ packer_plugin_install_exe }}'
-    mode: 0644
+    mode: 0755
     checksum: '{{ packer_plugin_checksum }}'
