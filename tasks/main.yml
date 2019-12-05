@@ -9,9 +9,12 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: make plugins directory
+- name: make plugins directories
+  with_items:
+    - '{{ packer_plugin_install_dir }}'
+    - '{{ packer_plugin_ver_install_dir }}'
   file:
-    path: '{{ packer_plugin_install_dir }}'
+    path: '{{ item }}'
     mode: 0755
     state: directory
 - name: download plugin
