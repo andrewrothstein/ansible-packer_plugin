@@ -9,11 +9,9 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: make plugins directories
-  with_items:
-    - '{{ packer_plugin_install_dir }}'
+- name: make plugins directory
   file:
-    path: '{{ item }}'
+    path: '{{ packer_plugin_install_dir }}'
     mode: 0755
     state: directory
 - name: download plugin
@@ -22,3 +20,8 @@
     dest: '{{ packer_plugin_install_exe }}'
     mode: 0755
     checksum: '{{ packer_plugin_checksum }}'
+- name: link plugin
+  file:
+    src: '{{ packer_plugin_install_exe }}'
+    dest: '{{ packer_plugin_link_exe }}'
+    state: link
