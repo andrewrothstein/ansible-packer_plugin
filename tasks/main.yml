@@ -10,17 +10,23 @@
       paths:
         - '{{ role_path }}/vars'
 - name: make plugins directory
+  become: '{{ packer_plugin_escalate }}'
+  become_user: root
   file:
     path: '{{ packer_plugin_install_dir }}'
     mode: 0755
     state: directory
 - name: download plugin
+  become: '{{ packer_plugin_escalate }}'
+  become_user: root
   get_url:
     url: '{{ packer_plugin_url }}'
     dest: '{{ packer_plugin_install_exe }}'
     mode: 0755
     checksum: '{{ packer_plugin_checksum }}'
 - name: link plugin
+  become: '{{ packer_plugin_escalate }}'
+  become_user: root
   file:
     src: '{{ packer_plugin_install_exe }}'
     dest: '{{ packer_plugin_link_exe }}'

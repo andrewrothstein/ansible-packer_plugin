@@ -2,6 +2,7 @@
 # defaults file for packer_plugin
 
 packer_plugin_install_dir: '{{ ansible_env.HOME }}/.packer.d/plugins'
+packer_plugin_escalate: False
 packer_plugin_os: linux
 
 #packer_plugin_name: builder-vsphere-clone
